@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>মোঃ সোহেল রানা | সার্ভার-সাইড ট্র্যাকিং এক্সপার্ট | GTM + Cloudflare</title>
+  <meta name="description" content="GTM + Cloudflare দিয়ে একবার সেটআপ করুন সার্ভার-সাইড ট্র্যাকিং। কোনো মাসিক সার্ভার খরচ নেই। লাইফটাইম ব্যবহার করুন। অ্যাড ব্লকার ও ডাটা লস থেকে মুক্তি।">
+  <meta property="og:title" content="সার্ভার-সাইড ট্র্যাকিং | GTM + Cloudflare | মোঃ সোহেল রানা">
+  <meta property="og:description" content="একবার সেটআপ, লাইফটাইম ব্যবহার। কোনো মাসিক সার্ভার খরচ নেই।">
+  <meta name="theme-color" content="#0f172a">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+  <style>
+    :root{--primary:#0f172a;--secondary:#1e293b;--accent:#3b82f6;--success:#10b981;--text:#f1f5f9;--text-muted:#94a3b8;--card-bg:#1e293b;--border:#334155;--gradient:linear-gradient(135deg,#3b82f6 0%,#8b5cf6 100%)}
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Noto Sans Bengali','Hind Siliguri','Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--primary);color:var(--text);line-height:1.7;overflow-x:hidden}
+    h1,h2,h3,h4{font-weight:700;line-height:1.3}
+    a{text-decoration:none;color:inherit}
+    .container{max-width:1200px;margin:0 auto;padding:0 20px}
+    header{position:fixed;top:0;left:0;right:0;background:rgba(15,23,42,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);z-index:1000;padding:14px 0}
+    nav{display:flex;justify-content:space-between;align-items:center}
+    .logo{font-size:1.25rem;font-weight:800;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .nav-links{display:flex;gap:24px;align-items:center}
+    .nav-links a{color:var(--text-muted);font-size:.92rem;font-weight:500;transition:color .2s}
+    .nav-links a:hover{color:var(--text)}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:8px;font-weight:600;font-size:.95rem;transition:all .2s;cursor:pointer;border:none}
+    .btn-whatsapp{background:#25D366;color:white}
+    .btn-whatsapp:hover{background:#1da851;transform:translateY(-2px)}
+    .btn-outline{background:transparent;border:1px solid var(--border);color:var(--text)}
+    .btn-outline:hover{border-color:var(--accent);color:var(--accent)}
+    .hero{padding:130px 0 70px;position:relative;overflow:hidden}
+    .hero::before{content:'';position:absolute;top:-40%;right:-15%;width:550px;height:550px;background:radial-gradient(circle,rgba(59,130,246,.15) 0%,transparent 70%);pointer-events:none}
+    .hero-content{display:grid;grid-template-columns:1.15fr 1fr;gap:50px;align-items:center}
+    .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(59,130,246,.15);color:#60a5fa;padding:6px 14px;border-radius:50px;font-size:.85rem;font-weight:600;margin-bottom:18px;border:1px solid rgba(59,130,246,.3)}
+    .hero h1{font-size:2.7rem;margin-bottom:18px;letter-spacing:-.02em}
+    .hero h1 span{background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .hero p{font-size:1.15rem;color:var(--text-muted);margin-bottom:28px;max-width:520px}
+    .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+    .stats-row{display:flex;gap:36px;margin-top:42px;padding-top:28px;border-top:1px solid var(--border)}
+    .stat-item h3{font-size:1.9rem;color:var(--accent)}
+    .stat-item p{color:var(--text-muted);font-size:.88rem}
+    .hero-visual{background:var(--card-bg);border:1px solid var(--border);border-radius:16px;padding:26px;position:relative}
+    .hero-visual::before{content:'';position:absolute;inset:-1px;border-radius:17px;background:var(--gradient);z-index:-1;opacity:.3}
+    .visual-header{display:flex;align-items:center;gap:10px;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--border)}
+    .dot{width:11px;height:11px;border-radius:50%}
+    .dot-red{background:#ef4444}.dot-yellow{background:#eab308}.dot-green{background:#22c55e}
+    .code-line{font-family:'Fira Code','Courier New',monospace;font-size:.82rem;color:var(--text-muted);margin-bottom:7px;display:flex;gap:12px}
+    .code-line .num{color:#64748b;min-width:18px}
+    .code-line .keyword{color:#c084fc}
+    .code-line .comment{color:#64748b}
+    .code-line .func{color:#60a5fa}
+    section{padding:70px 0}
+    .section-header{text-align:center;margin-bottom:50px}
+    .section-header h2{font-size:2.2rem;margin-bottom:14px}
+    .section-header p{color:var(--text-muted);font-size:1.05rem;max-width:580px;margin:0 auto}
+    .problem-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .problem-card{background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:26px;transition:transform .2s,border-color .2s}
+    .problem-card:hover{transform:translateY(-4px);border-color:#ef4444}
+    .problem-icon{font-size:1.9rem;margin-bottom:14px}
+    .problem-card h3{font-size:1.15rem;margin-bottom:10px;color:#f87171}
+    .problem-card p{color:var(--text-muted);font-size:.93rem}
+    .solution-box{background:linear-gradient(135deg,rgba(59,130,246,.1) 0%,rgba(139,92,246,.1) 100%);border:1px solid rgba(59,130,246,.3);border-radius:16px;padding:44px;text-align:center}
+    .solution-box h2{font-size:2rem;margin-bottom:14px}
+    .solution-box>p{color:var(--text-muted);font-size:1.08rem;max-width:680px;margin:0 auto 28px}
+    .benefits-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:36px;text-align:left}
+    .benefit-item{display:flex;gap:14px;align-items:flex-start;background:rgba(15,23,42,.5);padding:16px;border-radius:10px}
+    .benefit-item .check{background:var(--success);color:white;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.8rem;flex-shrink:0;margin-top:2px}
+    .benefit-item h4{font-size:1rem;margin-bottom:4px}
+    .benefit-item p{color:var(--text-muted);font-size:.88rem;margin:0}
+    .comparison{overflow-x:auto}
+    table{width:100%;border-collapse:collapse;background:var(--card-bg);border-radius:12px;overflow:hidden;font-size:.9rem}
+    th,td{padding:16px 20px;text-align:left;border-bottom:1px solid var(--border)}
+    th{background:rgba(59,130,246,.1);font-weight:600;color:var(--accent)}
+    tr:last-child td{border-bottom:none}
+    .yes{color:var(--success);font-weight:600}
+    .no{color:#ef4444;font-weight:600}
+    .highlight{background:rgba(16,185,129,.08)}
+    .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .service-card{background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:28px 24px;transition:all .2s}
+    .service-card:hover{border-color:var(--accent);transform:translateY(-4px)}
+    .service-icon{width:50px;height:50px;background:rgba(59,130,246,.15);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:18px}
+    .service-card h3{font-size:1.2rem;margin-bottom:10px}
+    .service-card p{color:var(--text-muted);font-size:.93rem;margin-bottom:14px}
+    .service-card ul{list-style:none}
+    .service-card li{color:var(--text-muted);font-size:.88rem;padding:4px 0;display:flex;align-items:center;gap:8px}
+    .service-card li::before{content:'✓';color:var(--success);font-weight:bold}
+    .cf-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .cf-card{background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:22px;text-align:center}
+    .cf-card .icon{font-size:1.9rem;margin-bottom:12px}
+    .cf-card h4{font-size:1.05rem;margin-bottom:8px}
+    .cf-card p{color:var(--text-muted);font-size:.85rem}
+    .proof-section{background:var(--secondary);border-radius:18px;padding:50px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+    .proof-content h2{font-size:2rem;margin-bottom:14px}
+    .proof-content p{color:var(--text-muted);margin-bottom:20px}
+    
+    
+    
+    
+    .reviews{display:flex;flex-direction:column;gap:14px}
+    .review-card{background:var(--primary);border:1px solid var(--border);border-radius:10px;padding:18px}
+    .review-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+    .stars{color:#fbbf24;font-size:.9rem}
+    .review-card p{color:var(--text-muted);font-size:.9rem;font-style:italic}
+    .reviewer{margin-top:8px;font-size:.85rem;color:var(--text);font-weight:600}
+    .cta-section{text-align:center;padding:70px 0}
+    .cta-box{background:var(--gradient);border-radius:18px;padding:50px 36px;position:relative;overflow:hidden}
+    .cta-box h2{font-size:2.1rem;margin-bottom:14px;color:white}
+    .cta-box p{color:rgba(255,255,255,.9);font-size:1.1rem;margin-bottom:28px;max-width:480px;margin-left:auto;margin-right:auto}
+    .cta-buttons{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+    .cta-buttons .btn-whatsapp{background:#25D366;color:white}
+    .socials{display:flex;justify-content:center;gap:14px;margin-top:36px;flex-wrap:wrap}
+    .social-link{width:46px;height:46px;background:var(--card-bg);border:1px solid var(--border);border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--text-muted);transition:all .2s}
+    .social-link:hover{border-color:var(--accent);transform:translateY(-3px);background:rgba(59,130,246,.1);color:var(--accent)}
+    footer{border-top:1px solid var(--border);padding:36px 0;text-align:center;color:var(--text-muted);font-size:.9rem}
+    @media(max-width:992px){.hero-content{grid-template-columns:1fr;gap:36px}.hero h1{font-size:2.2rem}.problem-grid,.services-grid{grid-template-columns:1fr}.cf-grid{grid-template-columns:repeat(2,1fr)}.proof-section{grid-template-columns:1fr;padding:36px 24px}.benefits-grid{grid-template-columns:1fr}}
+
+    .process-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+    .process-card{background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:26px;display:flex;gap:18px;align-items:flex-start;transition:all .2s}
+    .process-card:hover{border-color:var(--accent);transform:translateY(-3px)}
+    .process-num{width:42px;height:42px;background:var(--gradient);border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.1rem;flex-shrink:0;color:white}
+    .process-card h3{font-size:1.1rem;margin-bottom:8px}
+    .process-card p{color:var(--text-muted);font-size:.9rem;margin:0}
+    @media(max-width:768px){.process-grid{grid-template-columns:1fr}}
+
+
+
+    .pricing-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-bottom:40px}
+    .price-card{background:var(--card-bg);border:1px solid var(--border);border-radius:16px;padding:32px 26px;position:relative;transition:all .25s;display:flex;flex-direction:column}
+    .price-card:hover{border-color:var(--accent);transform:translateY(-6px);box-shadow:0 20px 40px -15px rgba(59,130,246,.25)}
+    .price-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--gradient);color:white;font-size:.75rem;font-weight:700;padding:4px 14px;border-radius:50px;white-space:nowrap}
+    .price-icon{width:48px;height:48px;margin-bottom:14px;display:flex;align-items:center;justify-content:center}
+    .price-card h3{font-size:1.25rem;margin-bottom:6px;line-height:1.35}
+    .price-desc{color:var(--text-muted);font-size:.9rem;margin-bottom:18px}
+    .price-amount{font-size:2.1rem;font-weight:800;color:var(--accent);margin-bottom:20px}
+    .price-amount span{font-size:1rem;font-weight:600;color:var(--text-muted)}
+    .price-features{list-style:none;margin-bottom:24px;flex-grow:1}
+    .price-features li{color:var(--text-muted);font-size:.9rem;padding:6px 0;display:flex;align-items:flex-start;gap:8px}
+    .price-features li::before{content:'✓';color:var(--success);font-weight:bold;flex-shrink:0}
+    .price-btn{width:100%;justify-content:center;margin-top:auto}
+    .package-card{background:linear-gradient(135deg,rgba(59,130,246,.12) 0%,rgba(139,92,246,.12) 100%);border:1px solid rgba(59,130,246,.35);border-radius:18px;padding:40px;display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:center;margin-bottom:24px}
+    .package-badge{display:inline-block;background:var(--gradient);color:white;font-size:.8rem;font-weight:700;padding:5px 14px;border-radius:50px;margin-bottom:14px}
+    .package-left h3{font-size:1.6rem;margin-bottom:10px}
+    .package-left > p{color:var(--text-muted);font-size:1rem;margin-bottom:18px}
+    .package-features{list-style:none}
+    .package-features li{color:var(--text);font-size:.95rem;padding:5px 0}
+    .package-right{text-align:center;background:rgba(15,23,42,.5);border-radius:14px;padding:28px 24px;border:1px solid var(--border)}
+    .package-old{color:var(--text-muted);font-size:.9rem;text-decoration:line-through;margin-bottom:6px}
+    .package-price{font-size:2.6rem;font-weight:800;color:#6ee7b7;margin-bottom:6px}
+    .package-price span{font-size:1.1rem;font-weight:600;color:var(--text-muted)}
+    .package-save{color:#86efac;font-size:.9rem;font-weight:600;margin-bottom:20px}
+    .package-btn{width:100%;justify-content:center;font-size:1.05rem;padding:14px 24px}
+    .pricing-note{text-align:center;color:var(--text-muted);font-size:.9rem;margin-top:8px}
+    @media(max-width:992px){.pricing-grid{grid-template-columns:1fr}.package-card{grid-template-columns:1fr;gap:24px;padding:28px}}@media(min-width:993px){.pricing-grid{grid-template-columns:repeat(2,1fr)}}
+
+
+    .about-avatar{width:140px;height:140px;border-radius:50%;background:var(--gradient);display:flex;align-items:center;justify-content:center;font-size:3rem;font-weight:800;color:white;margin:0 auto 24px;border:4px solid rgba(59,130,246,.4);box-shadow:0 10px 30px -10px rgba(59,130,246,.5);letter-spacing:2px;overflow:hidden;position:relative}
+    .about-avatar img{width:100%;height:100%;object-fit:cover;border-radius:50%;display:block}
+    .about-avatar .fallback{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:var(--gradient);border-radius:50%}
+    .about-header{text-align:center;margin-bottom:28px}
+    .about-header h2{font-size:1.9rem;margin-bottom:6px}
+    .about-header .title{color:var(--accent);font-size:1rem;font-weight:600;margin-bottom:8px}
+    .about-header .location{color:var(--text-muted);font-size:.9rem}
+
+    @media(max-width:640px){.nav-links{display:none}.hero{padding:110px 0 50px}.hero h1{font-size:1.85rem}.stats-row{flex-direction:column;gap:16px}.cf-grid{grid-template-columns:1fr}.section-header h2{font-size:1.7rem}.cta-box h2{font-size:1.7rem}}
+
+    html{scroll-padding-top:76px}
+    .trust{padding:24px 0;background:var(--secondary);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+    .trust p{text-align:center;color:var(--text-muted);font-size:.85rem;margin-bottom:14px}
+    .trust-row{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+    .bi{flex-shrink:0;vertical-align:-3px}.chip{display:inline-flex;align-items:center;gap:8px;background:var(--primary);border:1px solid var(--border);border-radius:50px;padding:7px 16px;font-size:.88rem;font-weight:600;color:var(--text)}
+    .flow{display:flex;align-items:stretch;justify-content:center;gap:10px;flex-wrap:wrap}
+    .flow-step{flex:1 1 150px;max-width:200px;background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:18px 12px;text-align:center}
+    .flow-step.hl{border-color:var(--accent);background:rgba(59,130,246,.12)}
+    .flow-step .ic{font-size:1.7rem;margin-bottom:6px}
+    .flow-step h4{font-size:.95rem;margin-bottom:4px}
+    .flow-step p{font-size:.78rem;color:var(--text-muted);line-height:1.5}
+    .flow-arrow{align-self:center;color:var(--accent);font-size:1.4rem;font-weight:700}
+    .cost-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:34px}
+    .cost-card{background:var(--card-bg);border:1px solid var(--border);border-radius:14px;padding:26px;text-align:center}
+    .cost-card.win{border-color:var(--success);background:rgba(16,185,129,.08)}
+    .cost-card h4{color:var(--text-muted);font-size:.95rem;margin-bottom:10px}
+    .cost-card .big{font-size:2rem;font-weight:800;margin-bottom:4px}
+    .cost-card .big.red{color:#f87171}.cost-card .big.green{color:#6ee7b7}
+    .cost-card small{color:var(--text-muted);display:block}
+    .cost-save{margin-top:22px;text-align:center;font-size:1.05rem;color:#6ee7b7;font-weight:700}
+    .cost-note{text-align:center;color:var(--text-muted);font-size:.82rem;margin-top:8px}
+    .res-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:30px}
+    .res-card{background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:24px;text-align:center}
+    .res-card .ic{font-size:1.8rem;margin-bottom:8px}
+    .res-card h4{margin-bottom:6px}
+    .res-card p{color:var(--text-muted);font-size:.88rem}
+    .shots{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+    .shot{background:var(--card-bg);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+    .shot img{width:100%;display:block}
+    .shot figcaption{padding:10px 14px;font-size:.85rem;color:var(--text-muted);text-align:center}
+    .timeline{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:0 auto 38px;align-items:center}
+    .tl-step{background:rgba(59,130,246,.12);border:1px solid rgba(59,130,246,.3);color:#93c5fd;border-radius:50px;padding:8px 18px;font-size:.9rem;font-weight:600}
+    .tl-arrow{color:var(--text-muted)}
+    .tl-time{width:100%;text-align:center;color:var(--text-muted);font-size:.88rem;margin-top:4px}
+    .guarantee{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .g-card{background:linear-gradient(135deg,rgba(16,185,129,.1),rgba(59,130,246,.08));border:1px solid rgba(16,185,129,.3);border-radius:14px;padding:26px;text-align:center}
+    .g-card .ic{font-size:2rem;margin-bottom:8px}
+    .g-card h4{margin-bottom:6px}
+    .g-card p{color:var(--text-muted);font-size:.9rem}
+    .video-card{display:flex;align-items:center;gap:16px;background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:16px 20px;margin-top:30px;transition:border-color .2s}
+    .video-card:hover{border-color:#ef4444}
+    .video-card .play{width:48px;height:48px;border-radius:50%;background:#ef4444;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
+    .video-card p{color:var(--text-muted);font-size:.88rem}
+    .faq{max-width:800px;margin:0 auto}
+    .faq details{background:var(--card-bg);border:1px solid var(--border);border-radius:12px;margin-bottom:12px;overflow:hidden}
+    .faq summary{cursor:pointer;padding:18px 22px;font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:12px}
+    .faq summary::-webkit-details-marker{display:none}
+    .faq summary::after{content:'+';color:var(--accent);font-size:1.4rem;line-height:1}
+    .faq details[open] summary::after{content:'−'}
+    .faq details[open]{border-color:var(--accent)}
+    .faq details p{padding:0 22px 20px;color:var(--text-muted);font-size:.95rem}
+    .audit-box{background:var(--card-bg);border:1px dashed var(--accent);border-radius:14px;padding:26px;margin-bottom:28px;text-align:center}
+    .audit-box h3{margin-bottom:8px}
+    .audit-box p{color:var(--text-muted);margin-bottom:16px;font-size:.95rem}
+    .float-wa{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:1100;background:#25D366;color:#fff;border-radius:50px;padding:13px 20px;font-weight:700;box-shadow:0 10px 25px -5px rgba(37,211,102,.5);transition:transform .2s}
+    .float-wa:hover{transform:translateY(-3px)}
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s,transform .6s}
+    .reveal.in{opacity:1;transform:none}
+    @media(max-width:992px){.cost-grid,.res-grid,.guarantee{grid-template-columns:1fr}.flow-arrow{display:none}.flow-step{max-width:none}}
+    @media(max-width:640px){.shots{grid-template-columns:1fr}.float-wa span{display:none}.float-wa{padding:14px 16px}}
+
+    .live-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+    .live-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(239,68,68,.15);color:#fca5a5;font-size:.72rem;font-weight:800;letter-spacing:.08em;padding:3px 10px;border-radius:50px}
+    .live-badge i{width:7px;height:7px;border-radius:50%;background:#ef4444;animation:lvp 1.2s infinite}
+    @keyframes lvp{0%{box-shadow:0 0 0 0 rgba(239,68,68,.7)}100%{box-shadow:0 0 0 8px rgba(239,68,68,0)}}
+    .live-sub{font-family:'Courier New',monospace;font-size:.75rem;color:#64748b}
+    .live-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px}
+    .live-stats div{background:rgba(15,23,42,.6);border:1px solid var(--border);border-radius:8px;padding:8px 6px;text-align:center}
+    .live-stats b{display:block;font-size:1rem;color:var(--text);font-variant-numeric:tabular-nums}
+    .live-stats small{font-size:.66rem;color:var(--text-muted)}
+    .live-spark{width:100%;height:70px;display:block;margin-bottom:10px}
+    .live-log{font-family:'Courier New',monospace;font-size:.74rem;height:128px;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;gap:4px}
+    .lv-row{display:flex;gap:8px;align-items:center;color:var(--text-muted);animation:lvin .4s ease}
+    .lv-row .t{color:#64748b}.lv-row .e{color:#c084fc;flex:1}.lv-row .d{color:#60a5fa}.lv-row .s{color:#34d399;font-weight:700}
+    @keyframes lvin{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+    .live-note{font-size:.68rem;color:#64748b;text-align:right;margin-top:6px}
+
+    .audit-form{display:flex;gap:10px;max-width:680px;margin:0 auto}
+    .audit-form input{flex:1;min-width:0;background:var(--card-bg);border:1px solid var(--border);border-radius:8px;padding:14px 16px;color:var(--text);font-size:1rem;font-family:inherit}
+    .audit-form input:focus{outline:none;border-color:var(--accent)}
+    .audit-form button:disabled{opacity:.6;cursor:wait}
+    .audit-out{max-width:820px;margin:28px auto 0}
+    .au-load,.au-err{text-align:center;color:var(--text-muted);padding:26px;background:var(--card-bg);border:1px solid var(--border);border-radius:12px}
+    .au-err{border-color:#ef4444;color:#fca5a5}
+    .au-spin{display:inline-block;width:18px;height:18px;border:3px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:aus .8s linear infinite;vertical-align:-3px;margin-right:8px}
+    @keyframes aus{to{transform:rotate(360deg)}}
+    .au-score{display:flex;align-items:center;gap:22px;background:var(--card-bg);border:1px solid var(--border);border-radius:14px;padding:22px;margin-bottom:16px}
+    .au-ring{width:92px;height:92px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:800;flex-shrink:0}
+    .au-score h3{font-size:1.15rem;margin-bottom:4px;word-break:break-all}
+    .au-score p{color:var(--text-muted);font-size:.9rem}
+    .au-item{background:var(--card-bg);border:1px solid var(--border);border-left-width:4px;border-radius:12px;padding:18px 20px;margin-bottom:12px}
+    .au-item.ok{border-left-color:var(--success)}.au-item.warn{border-left-color:#eab308}.au-item.miss{border-left-color:#ef4444}
+    .au-head{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:6px}
+    .au-head h4{font-size:1.02rem}
+    .au-tag{font-size:.75rem;font-weight:700;padding:3px 10px;border-radius:50px;white-space:nowrap}
+    .ok .au-tag{background:rgba(16,185,129,.15);color:#6ee7b7}.warn .au-tag{background:rgba(234,179,8,.15);color:#fde047}.miss .au-tag{background:rgba(239,68,68,.15);color:#fca5a5}
+    .au-item p{color:var(--text-muted);font-size:.9rem}
+    .au-ids{margin-top:6px;font-family:'Courier New',monospace;font-size:.78rem;color:#93c5fd;word-break:break-all}
+    .au-fix{margin-top:10px;background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.25);border-radius:8px;padding:10px 12px;font-size:.88rem;color:var(--text)}
+    .au-fix b{color:#93c5fd}
+    .au-note{color:var(--text-muted);font-size:.8rem;text-align:center;margin:14px 0 20px}
+    .au-cta{text-align:center}
+    @media(max-width:640px){.audit-form{flex-direction:column}.au-score{flex-direction:column;text-align:center}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">PixelSetup • GTM Expert</div>
+        <div class="nav-links">
+          <a href="#problem">সমস্যা</a>
+          <a href="#solution">সমাধান</a>
+          <a href="#results">রেজাল্ট</a>
+          <a href="#services">সার্ভিস</a>
+          <a href="#process">প্রসেস</a>
+          <a href="#about">আমার সম্পর্কে</a>
+          <a href="#audit">ফ্রি অডিট</a>
+          <a href="#faq">FAQ</a>
+          <a href="https://wa.me/8801705289000" class="btn btn-whatsapp" target="_blank" rel="noopener"><svg class="bi" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" role="img" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg> হোয়াটসঅ্যাপ</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div>
+          <div class="badge">⭐ Top Rated Seller • ৪০০+ প্রজেক্ট সম্পন্ন</div>
+          <h1>সার্ভার-সাইড ট্র্যাকিং<br><span>যা লাইফটাইম চলবে</span></h1>
+          <p>আমি <strong>Google Tag Manager + Cloudflare</strong> দিয়ে সার্ভার-সাইড ট্র্যাকিং সেটআপ করি। একবার সেটআপ করলেই হয় — কোনো মাসিক সার্ভার খরচ নেই। অ্যাড ব্লকার ও ডাটা লস থেকে মুক্তি পান।</p>
+          <div class="hero-cta">
+            <a href="https://wa.me/8801705289000?text=হ্যালো%20সোহেল%20ভাই%2C%20আমি%20সার্ভার-সাইড%20ট্র্যাকিং%20সেটআপ%20করতে%20চাই" class="btn btn-whatsapp" target="_blank" rel="noopener"><svg class="bi" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" role="img" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg> হোয়াটসঅ্যাপে কথা বলুন</a>
+            <a href="#solution" class="btn btn-outline">কীভাবে কাজ করে →</a>
+          </div>
+          <div class="stats-row">
+            <div class="stat-item"><h3>৪০০+</h3><p>প্রজেক্ট সম্পন্ন</p></div>
+            <div class="stat-item"><h3>৫.০</h3><p>রেটিং (২৪০+ রিভিউ)</p></div>
+            <div class="stat-item"><h3>০ টাকা</h3><p>মাসিক সার্ভার খরচ</p></div>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="visual-header">
+            <div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div>
+            <span style="margin-left:12px;color:#94a3b8;font-size:.85rem">Cloudflare • Analytics</span>
+          </div>
+          <div class="live-top"><span class="live-badge"><i></i>LIVE</span><span class="live-sub">server.yourdomain.com</span></div>
+          <div class="live-stats">
+            <div><b id="lvReq">12,480</b><small>Requests</small></div>
+            <div><b id="lvEv">11,936</b><small>Events পাঠানো</small></div>
+            <div><b id="lvOk">99.9%</b><small>Success</small></div>
+            <div><b id="lvBot">214</b><small>Bot ব্লকড</small></div>
+          </div>
+          <svg id="lvSpark" class="live-spark" viewBox="0 0 300 70" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="lvG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3b82f6" stop-opacity=".45"/><stop offset="1" stop-color="#3b82f6" stop-opacity="0"/></linearGradient></defs><path id="lvArea" fill="url(#lvG)"/><polyline id="lvLine" fill="none" stroke="#60a5fa" stroke-width="2" stroke-linejoin="round"/></svg>
+          <div class="live-log" id="lvLog" aria-hidden="true"></div>
+          <div class="live-note">* ডেমো ভিজ্যুয়ালাইজেশন</div>
+          <div style="margin-top:18px;padding:12px;background:rgba(16,185,129,.1);border-radius:8px;border:1px solid rgba(16,185,129,.3);font-size:.85rem;color:#6ee7b7">✓ কোনো মাসিক খরচ নেই • লাইফটাইম মালিকানা</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="trust"><div class="container">
+    <p>এই সব প্ল্যাটফর্মে সার্ভার-সাইড ট্র্যাকিং সেটআপ করি</p>
+    <div class="trust-row"><span class="chip"><svg class="bi" width="16" height="16" viewBox="0 0 24 24" fill="#0467DF" role="img" aria-hidden="true"><path d="M6.915 4.03c-1.968 0-3.683 1.28-4.871 3.113C.704 9.208 0 11.883 0 14.449c0 .706.07 1.369.21 1.973a6.624 6.624 0 0 0 .265.86 5.297 5.297 0 0 0 .371.761c.696 1.159 1.818 1.927 3.593 1.927 1.497 0 2.633-.671 3.965-2.444.76-1.012 1.144-1.626 2.663-4.32l.756-1.339.186-.325c.061.1.121.196.183.3l2.152 3.595c.724 1.21 1.665 2.556 2.47 3.314 1.046.987 1.992 1.22 3.06 1.22 1.075 0 1.876-.355 2.455-.843a3.743 3.743 0 0 0 .81-.973c.542-.939.861-2.127.861-3.745 0-2.72-.681-5.357-2.084-7.45-1.282-1.912-2.957-2.93-4.716-2.93-1.047 0-2.088.467-3.053 1.308-.652.57-1.257 1.29-1.82 2.05-.69-.875-1.335-1.547-1.958-2.056-1.182-.966-2.315-1.303-3.454-1.303zm10.16 2.053c1.147 0 2.188.758 2.992 1.999 1.132 1.748 1.647 4.195 1.647 6.4 0 1.548-.368 2.9-1.839 2.9-.58 0-1.027-.23-1.664-1.004-.496-.601-1.343-1.878-2.832-4.358l-.617-1.028a44.908 44.908 0 0 0-1.255-1.98c.07-.109.141-.224.211-.327 1.12-1.667 2.118-2.602 3.358-2.602zm-10.201.553c1.265 0 2.058.791 2.675 1.446.307.327.737.871 1.234 1.579l-1.02 1.566c-.757 1.163-1.882 3.017-2.837 4.338-1.191 1.649-1.81 1.817-2.486 1.817-.524 0-1.038-.237-1.383-.794-.263-.426-.464-1.13-.464-2.046 0-2.221.63-4.535 1.66-6.088.454-.687.964-1.226 1.533-1.533a2.264 2.264 0 0 1 1.088-.285z"/></svg> Meta Conversions API</span><span class="chip"><svg class="bi" width="16" height="16" viewBox="0 0 24 24" fill="#E37400" role="img" aria-hidden="true"><path d="M22.84 2.9982v17.9987c.0086 1.6473-1.3197 2.9897-2.967 2.9984a2.9808 2.9808 0 01-.3677-.0208c-1.528-.226-2.6477-1.5558-2.6105-3.1V3.1204c-.0369-1.5458 1.0856-2.8762 2.6157-3.1 1.6361-.1915 3.1178.9796 3.3093 2.6158.014.1201.0208.241.0202.3619zM4.1326 18.0548c-1.6417 0-2.9726 1.331-2.9726 2.9726C1.16 22.6691 2.4909 24 4.1326 24s2.9726-1.3309 2.9726-2.9726-1.331-2.9726-2.9726-2.9726zm7.8728-9.0098c-.0171 0-.0342 0-.0513.0003-1.6495.0904-2.9293 1.474-2.891 3.1256v7.9846c0 2.167.9535 3.4825 2.3505 3.763 1.6118.3266 3.1832-.7152 3.5098-2.327.04-.1974.06-.3983.0593-.5998v-8.9585c.003-1.6474-1.33-2.9852-2.9773-2.9882z"/></svg> Google Analytics 4</span><span class="chip"><svg class="bi" width="16" height="16" viewBox="0 0 24 24" fill="#4285F4" role="img" aria-hidden="true"><path d="M3.9998 22.9291C1.7908 22.9291 0 21.1383 0 18.9293s1.7908-3.9998 3.9998-3.9998 3.9998 1.7908 3.9998 3.9998-1.7908 3.9998-3.9998 3.9998zm19.4643-6.0004L15.4632 3.072C14.3586 1.1587 11.9121.5028 9.9988 1.6074S7.4295 5.1585 8.5341 7.0718l8.0009 13.8567c1.1046 1.9133 3.5511 2.5679 5.4644 1.4646 1.9134-1.1046 2.568-3.5511 1.4647-5.4644zM7.5137 4.8438L1.5645 15.1484A4.5 4.5 0 0 1 4 14.4297c2.5597-.0075 4.6248 2.1585 4.4941 4.7148l3.2168-5.5723-3.6094-6.25c-.4499-.7793-.6322-1.6394-.5878-2.4784z"/></svg> Google Ads Enhanced Conversions</span><span class="chip"><svg class="bi" width="16" height="16" viewBox="0 0 24 24" fill="#ffffff" role="img" aria-hidden="true"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg> TikTok Events API</span><span class="chip"><svg class="bi" width="16" height="16" viewBox="0 0 24 24" fill="#246FDB" role="img" aria-hidden="true"><path d="M12.003 0a3 3 0 0 0-2.121 5.121l6.865 6.865-4.446 4.541 1.745 1.836a3.432 3.432 0 0 1 .7.739l.012.011-.001.002a3.432 3.432 0 0 1 .609 1.953 3.432 3.432 0 0 1-.09.78l7.75-7.647c.031-.029.067-.05.098-.08.023-.023.038-.052.06-.076a2.994 2.994 0 0 0-.06-4.166l-9-9A2.99 2.99 0 0 0 12.003 0zM8.63 2.133L.88 9.809a2.998 2.998 0 0 0 0 4.238l7.7 7.75a3.432 3.432 0 0 1-.077-.729 3.432 3.432 0 0 1 3.431-3.431 3.432 3.432 0 0 1 .826.101l-5.523-5.81 4.371-4.373-2.08-2.08c-.903-.904-1.193-2.183-.898-3.342zm3.304 16.004a2.932 2.932 0 0 0-2.931 2.931A2.932 2.932 0 0 0 11.934 24a2.932 2.932 0 0 0 2.932-2.932 2.932 2.932 0 0 0-2.932-2.931z"/></svg> Google Tag Manager</span><span class="chip"><svg class="bi" width="16" height="16" viewBox="0 0 24 24" fill="#F38020" role="img" aria-hidden="true"><path d="M16.5088 16.8447c.1475-.5068.0908-.9707-.1553-1.3154-.2246-.3164-.6045-.499-1.0615-.5205l-8.6592-.1123a.1559.1559 0 0 1-.1333-.0713c-.0283-.042-.0351-.0986-.021-.1553.0278-.084.1123-.1484.2036-.1562l8.7359-.1123c1.0351-.0489 2.1601-.8868 2.5537-1.9136l.499-1.3013c.0215-.0561.0293-.1128.0147-.168-.5625-2.5463-2.835-4.4453-5.5499-4.4453-2.5039 0-4.6284 1.6177-5.3876 3.8614-.4927-.3658-1.1187-.5625-1.794-.499-1.2026.119-2.1665 1.083-2.2861 2.2856-.0283.31-.0069.6128.0635.894C1.5683 13.171 0 14.7754 0 16.752c0 .1748.0142.3515.0352.5273.0141.083.0844.1475.1689.1475h15.9814c.0909 0 .1758-.0645.2032-.1553l.12-.4268zm2.7568-5.5634c-.0771 0-.1611 0-.2383.0112-.0566 0-.1054.0415-.127.0976l-.3378 1.1744c-.1475.5068-.0918.9707.1543 1.3164.2256.3164.6055.498 1.0625.5195l1.8437.1133c.0557 0 .1055.0263.1329.0703.0283.043.0351.1074.0214.1562-.0283.084-.1132.1485-.204.1553l-1.921.1123c-1.041.0488-2.1582.8867-2.5527 1.914l-.1406.3585c-.0283.0713.0215.1416.0986.1416h6.5977c.0771 0 .1474-.0489.169-.126.1122-.4082.1757-.837.1757-1.2803 0-2.6025-2.125-4.727-4.7344-4.727"/></svg> Cloudflare Workers</span></div>
+  </div></div>
+
+  <section id="problem">
+    <div class="container">
+      <div class="section-header">
+        <h2>শুধু ব্রাউজার ট্র্যাকিং কেন ক্ষতি করছে?</h2>
+        <p>অধিকাংশ ব্যবসা ৩০–৫০% কনভার্সন ডাটা হারাচ্ছে, জানতেই পারছে না।</p>
+      </div>
+      <div class="problem-grid">
+        <div class="problem-card">
+          <div class="problem-icon">🚫</div>
+          <h3>অ্যাড ব্লকার ডাটা মেরে ফেলছে</h3>
+          <p>৪০%+ ইউজার অ্যাড ব্লকার ব্যবহার করে। আপনার Facebook Pixel, GA4, TikTok Pixel — নীরবে ব্লক হয়ে যাচ্ছে। অসম্পূর্ণ ডাটা দিয়ে অ্যাড অপটিমাইজ করছেন।</p>
+        </div>
+        <div class="problem-card">
+          <div class="problem-icon">📱</div>
+          <h3>iOS ও Safari অ্যাট্রিবিউশন নষ্ট করে</h3>
+          <p>ITP কুকি লাইফ ৭ দিনে সীমিত করে। লম্বা কাস্টমার জার্নি ভেঙে যায়। ক্যাম্পেইন খারাপ পারফর্ম করছে মনে হয় — আসলে ডাটা মিসিং।</p>
+        </div>
+        <div class="problem-card">
+          <div class="problem-icon">💸</div>
+          <h3>পেইড টুলস = মাসিক খরচ চলতেই থাকে</h3>
+          <p>Stape-এর মতো টুলস প্রতি মাসে বিল নেয়। আপনার ট্র্যাকিং একটা রিকারিং খরচ হয়ে যায়, মালিকানাধীন অ্যাসেট না।</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="solution">
+    <div class="container">
+      <div class="solution-box">
+        <h2>আমার সমাধান: GTM + Cloudflare সার্ভার-সাইড ট্র্যাকিং</h2>
+        <p>আমি Google Tag Manager Server-Side + Cloudflare Workers/Pages দিয়ে সম্পূর্ণ <strong>ফার্স্ট-পার্টি সার্ভার-সাইড ট্র্যাকিং</strong> সিস্টেম বানিয়ে দিই। সঠিক ডাটা, পূর্ণ মালিকানা, আর <strong>শূন্য মাসিক সার্ভার খরচ</strong>।</p>
+        <div class="benefits-grid">
+          <div class="benefit-item"><div class="check">✓</div><div><h4>একবার সেটআপ = লাইফটাইম ব্যবহার</h4><p>Stape বা Google Cloud-এর মাসিক বিল নেই। আপনার নিজের Cloudflare অ্যাকাউন্টে সব থাকবে।</p></div></div>
+          <div class="benefit-item"><div class="check">✓</div><div><h4>অ্যাড ব্লকার ও ITP বাইপাস</h4><p>ফার্স্ট-পার্টি ডোমেইন + সার্ভার-সাইড ডেলিভারি মানে আপনার ইভেন্ট সত্যিই Meta, Google, TikTok-এ পৌঁছায়।</p></div></div>
+          <div class="benefit-item"><div class="check">✓</div><div><h4>বেশি Match Quality ও ROAS</h4><p>Meta CAPI-তে ভালো Event Match Quality → শক্তিশালী অপটিমাইজেশন → কম CPA।</p></div></div>
+          <div class="benefit-item"><div class="check">✓</div><div><h4>Cloudflare সিকিউরিটি বিল্ট-ইন</h4><p>বট প্রটেকশন, DDoS, IP ব্লকিং, WAF — আপনার ট্র্যাকিং এন্ডপয়েন্টও সুরক্ষিত থাকে।</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="flow">
+    <div class="container">
+      <div class="section-header"><h2>ডাটা কীভাবে আপনার কাছে পৌঁছায়</h2><p>একটি ছবিতে পুরো সিস্টেম</p></div>
+      <div class="flow">
+        <div class="flow-step"><div class="ic">🌐</div><h4>আপনার ওয়েবসাইট</h4><p>ভিজিটর অ্যাকশন নেয়</p></div><div class="flow-arrow">→</div>
+        <div class="flow-step"><div class="ic"><svg class="bi" width="30" height="30" viewBox="0 0 24 24" fill="#246FDB" role="img" aria-hidden="true"><path d="M12.003 0a3 3 0 0 0-2.121 5.121l6.865 6.865-4.446 4.541 1.745 1.836a3.432 3.432 0 0 1 .7.739l.012.011-.001.002a3.432 3.432 0 0 1 .609 1.953 3.432 3.432 0 0 1-.09.78l7.75-7.647c.031-.029.067-.05.098-.08.023-.023.038-.052.06-.076a2.994 2.994 0 0 0-.06-4.166l-9-9A2.99 2.99 0 0 0 12.003 0zM8.63 2.133L.88 9.809a2.998 2.998 0 0 0 0 4.238l7.7 7.75a3.432 3.432 0 0 1-.077-.729 3.432 3.432 0 0 1 3.431-3.431 3.432 3.432 0 0 1 .826.101l-5.523-5.81 4.371-4.373-2.08-2.08c-.903-.904-1.193-2.183-.898-3.342zm3.304 16.004a2.932 2.932 0 0 0-2.931 2.931A2.932 2.932 0 0 0 11.934 24a2.932 2.932 0 0 0 2.932-2.932 2.932 2.932 0 0 0-2.932-2.931z"/></svg></div><h4>Web GTM</h4><p>ইভেন্ট ক্যাপচার হয়</p></div><div class="flow-arrow">→</div>
+        <div class="flow-step hl"><div class="ic"><svg class="bi" width="30" height="30" viewBox="0 0 24 24" fill="#F38020" role="img" aria-hidden="true"><path d="M16.5088 16.8447c.1475-.5068.0908-.9707-.1553-1.3154-.2246-.3164-.6045-.499-1.0615-.5205l-8.6592-.1123a.1559.1559 0 0 1-.1333-.0713c-.0283-.042-.0351-.0986-.021-.1553.0278-.084.1123-.1484.2036-.1562l8.7359-.1123c1.0351-.0489 2.1601-.8868 2.5537-1.9136l.499-1.3013c.0215-.0561.0293-.1128.0147-.168-.5625-2.5463-2.835-4.4453-5.5499-4.4453-2.5039 0-4.6284 1.6177-5.3876 3.8614-.4927-.3658-1.1187-.5625-1.794-.499-1.2026.119-2.1665 1.083-2.2861 2.2856-.0283.31-.0069.6128.0635.894C1.5683 13.171 0 14.7754 0 16.752c0 .1748.0142.3515.0352.5273.0141.083.0844.1475.1689.1475h15.9814c.0909 0 .1758-.0645.2032-.1553l.12-.4268zm2.7568-5.5634c-.0771 0-.1611 0-.2383.0112-.0566 0-.1054.0415-.127.0976l-.3378 1.1744c-.1475.5068-.0918.9707.1543 1.3164.2256.3164.6055.498 1.0625.5195l1.8437.1133c.0557 0 .1055.0263.1329.0703.0283.043.0351.1074.0214.1562-.0283.084-.1132.1485-.204.1553l-1.921.1123c-1.041.0488-2.1582.8867-2.5527 1.914l-.1406.3585c-.0283.0713.0215.1416.0986.1416h6.5977c.0771 0 .1474-.0489.169-.126.1122-.4082.1757-.837.1757-1.2803 0-2.6025-2.125-4.727-4.7344-4.727"/></svg></div><h4>Cloudflare Worker</h4><p>আপনার ডোমেইনে ফার্স্ট-পার্টি প্রসেসিং</p></div><div class="flow-arrow">→</div>
+        <div class="flow-step hl"><div class="ic"><svg class="bi" width="30" height="30" viewBox="0 0 24 24" fill="#246FDB" role="img" aria-hidden="true"><path d="M12.003 0a3 3 0 0 0-2.121 5.121l6.865 6.865-4.446 4.541 1.745 1.836a3.432 3.432 0 0 1 .7.739l.012.011-.001.002a3.432 3.432 0 0 1 .609 1.953 3.432 3.432 0 0 1-.09.78l7.75-7.647c.031-.029.067-.05.098-.08.023-.023.038-.052.06-.076a2.994 2.994 0 0 0-.06-4.166l-9-9A2.99 2.99 0 0 0 12.003 0zM8.63 2.133L.88 9.809a2.998 2.998 0 0 0 0 4.238l7.7 7.75a3.432 3.432 0 0 1-.077-.729 3.432 3.432 0 0 1 3.431-3.431 3.432 3.432 0 0 1 .826.101l-5.523-5.81 4.371-4.373-2.08-2.08c-.903-.904-1.193-2.183-.898-3.342zm3.304 16.004a2.932 2.932 0 0 0-2.931 2.931A2.932 2.932 0 0 0 11.934 24a2.932 2.932 0 0 0 2.932-2.932 2.932 2.932 0 0 0-2.932-2.931z"/></svg></div><h4>GTM Server</h4><p>ডাটা ক্লিন ও ম্যাপ হয়</p></div><div class="flow-arrow">→</div>
+        <div class="flow-step"><div class="ic"><svg class="bi" width="26" height="26" viewBox="0 0 24 24" fill="#0467DF" role="img" aria-hidden="true"><path d="M6.915 4.03c-1.968 0-3.683 1.28-4.871 3.113C.704 9.208 0 11.883 0 14.449c0 .706.07 1.369.21 1.973a6.624 6.624 0 0 0 .265.86 5.297 5.297 0 0 0 .371.761c.696 1.159 1.818 1.927 3.593 1.927 1.497 0 2.633-.671 3.965-2.444.76-1.012 1.144-1.626 2.663-4.32l.756-1.339.186-.325c.061.1.121.196.183.3l2.152 3.595c.724 1.21 1.665 2.556 2.47 3.314 1.046.987 1.992 1.22 3.06 1.22 1.075 0 1.876-.355 2.455-.843a3.743 3.743 0 0 0 .81-.973c.542-.939.861-2.127.861-3.745 0-2.72-.681-5.357-2.084-7.45-1.282-1.912-2.957-2.93-4.716-2.93-1.047 0-2.088.467-3.053 1.308-.652.57-1.257 1.29-1.82 2.05-.69-.875-1.335-1.547-1.958-2.056-1.182-.966-2.315-1.303-3.454-1.303zm10.16 2.053c1.147 0 2.188.758 2.992 1.999 1.132 1.748 1.647 4.195 1.647 6.4 0 1.548-.368 2.9-1.839 2.9-.58 0-1.027-.23-1.664-1.004-.496-.601-1.343-1.878-2.832-4.358l-.617-1.028a44.908 44.908 0 0 0-1.255-1.98c.07-.109.141-.224.211-.327 1.12-1.667 2.118-2.602 3.358-2.602zm-10.201.553c1.265 0 2.058.791 2.675 1.446.307.327.737.871 1.234 1.579l-1.02 1.566c-.757 1.163-1.882 3.017-2.837 4.338-1.191 1.649-1.81 1.817-2.486 1.817-.524 0-1.038-.237-1.383-.794-.263-.426-.464-1.13-.464-2.046 0-2.221.63-4.535 1.66-6.088.454-.687.964-1.226 1.533-1.533a2.264 2.264 0 0 1 1.088-.285z"/></svg> <svg class="bi" width="26" height="26" viewBox="0 0 24 24" fill="#4285F4" role="img" aria-hidden="true"><path d="M3.9998 22.9291C1.7908 22.9291 0 21.1383 0 18.9293s1.7908-3.9998 3.9998-3.9998 3.9998 1.7908 3.9998 3.9998-1.7908 3.9998-3.9998 3.9998zm19.4643-6.0004L15.4632 3.072C14.3586 1.1587 11.9121.5028 9.9988 1.6074S7.4295 5.1585 8.5341 7.0718l8.0009 13.8567c1.1046 1.9133 3.5511 2.5679 5.4644 1.4646 1.9134-1.1046 2.568-3.5511 1.4647-5.4644zM7.5137 4.8438L1.5645 15.1484A4.5 4.5 0 0 1 4 14.4297c2.5597-.0075 4.6248 2.1585 4.4941 4.7148l3.2168-5.5723-3.6094-6.25c-.4499-.7793-.6322-1.6394-.5878-2.4784z"/></svg> <svg class="bi" width="26" height="26" viewBox="0 0 24 24" fill="#E37400" role="img" aria-hidden="true"><path d="M22.84 2.9982v17.9987c.0086 1.6473-1.3197 2.9897-2.967 2.9984a2.9808 2.9808 0 01-.3677-.0208c-1.528-.226-2.6477-1.5558-2.6105-3.1V3.1204c-.0369-1.5458 1.0856-2.8762 2.6157-3.1 1.6361-.1915 3.1178.9796 3.3093 2.6158.014.1201.0208.241.0202.3619zM4.1326 18.0548c-1.6417 0-2.9726 1.331-2.9726 2.9726C1.16 22.6691 2.4909 24 4.1326 24s2.9726-1.3309 2.9726-2.9726-1.331-2.9726-2.9726-2.9726zm7.8728-9.0098c-.0171 0-.0342 0-.0513.0003-1.6495.0904-2.9293 1.474-2.891 3.1256v7.9846c0 2.167.9535 3.4825 2.3505 3.763 1.6118.3266 3.1832-.7152 3.5098-2.327.04-.1974.06-.3983.0593-.5998v-8.9585c.003-1.6474-1.33-2.9852-2.9773-2.9882z"/></svg> <svg class="bi" width="26" height="26" viewBox="0 0 24 24" fill="#ffffff" role="img" aria-hidden="true"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></div><h4>Meta • Google • TikTok</h4><p>সম্পূর্ণ ডাটা পৌঁছায়</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-header">
+        <h2>ক্লায়েন্ট-সাইড vs আমার Cloudflare সার্ভার-সাইড সেটআপ</h2>
+        <p>পার্থক্যটা পরিষ্কার দেখুন</p>
+      </div>
+      <div class="comparison">
+        <table>
+          <thead>
+            <tr>
+              <th>বৈশিষ্ট্য</th>
+              <th>শুধু ব্রাউজার ট্র্যাকিং</th>
+              <th>Stape.io / Paid Server</th>
+              <th class="highlight">আমার GTM + Cloudflare সেটআপ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>অ্যাড ব্লকার রেজিস্ট্যান্স</td>
+              <td class="no">❌ সহজে ব্লক হয়</td>
+              <td class="yes">✅ ভালো</td>
+              <td class="yes highlight">✅ ফার্স্ট-পার্টি, ব্লক করা কঠিন</td>
+            </tr>
+            <tr>
+              <td>Safari / iOS কুকি লাইফ</td>
+              <td class="no">❌ সর্বোচ্চ ৭ দিন</td>
+              <td class="yes">✅ ভালো</td>
+              <td class="yes highlight">✅ ৩৬৫ দিন পর্যন্ত</td>
+            </tr>
+            <tr>
+              <td>ডাটা অ্যাকুরেসি</td>
+              <td class="no">❌ ৫০–৭০%</td>
+              <td class="yes">✅ ৯০%+</td>
+              <td class="yes highlight">✅ ৯৫%+</td>
+            </tr>
+            <tr>
+              <td>সার্ভার খরচ</td>
+              <td class="yes">০ টাকা (কিন্তু অসম্পূর্ণ)</td>
+              <td class="no">❌ মাসিক ~২,৫০০ টাকা<br><small>(Starting $20+$2 USD)</small><br><small>বাৎসরিক ~৩০,০০০ টাকা</small></td>
+              <td class="yes highlight">✅ ০ টাকা (পূর্ণ অ্যাকুরেসি)</td>
+            </tr>
+            <tr>
+              <td>পেজ স্পিড ইমপ্যাক্ট</td>
+              <td class="no">❌ অতিরিক্ত JS লোড</td>
+              <td class="yes">✅ ভালো</td>
+              <td class="yes highlight">✅ ব্রাউজারে মিনিমাল লোড</td>
+            </tr>
+            <tr>
+              <td>মালিকানা</td>
+              <td class="yes">ট্যাগ আপনার</td>
+              <td class="no">❌ থার্ড-পার্টি সার্ভার</td>
+              <td class="yes highlight">✅ সবকিছু আপনার</td>
+            </tr>
+            <tr>
+              <td>সিকিউরিটি (বট/DDoS)</td>
+              <td class="no">❌ নেই</td>
+              <td class="yes">✅ আছে</td>
+              <td class="yes highlight">✅ Cloudflare প্রটেকশন</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="cost-grid">
+        <div class="cost-card"><h4>Stape.io — ১ বছর</h4><div class="big red">~৩০,০০০ ৳</div><small>প্রতি মাসে ~২,৫০০ টাকা</small></div>
+        <div class="cost-card"><h4>Stape.io — ৩ বছর</h4><div class="big red">~৯০,০০০ ৳</div><small>খরচ চলতেই থাকে</small></div>
+        <div class="cost-card win"><h4>আমার সেটআপ — ৩ বছর</h4><div class="big green">৮,০০০ ৳</div><small>এককালীন • মাসিক সার্ভার ফি নেই</small></div>
+      </div>
+      <p class="cost-save">৩ বছরে সাশ্রয় প্রায় ৮২,০০০ টাকা 🎉</p>
+      <p class="cost-note">* কমপ্লিট প্যাকেজের মূল্যে হিসাব। দৈনিক অ্যাড বাজেট ১,০০০ USD হলে Cloudflare-এর মাসিক ৫ USD প্ল্যান লাগবে; তার আগে সবকিছু ফ্রি।</p>
+    </div>
+  </section>
+
+  <section id="results">
+    <div class="container">
+      <div class="section-header"><h2>সেটআপের পর কী পরিবর্তন দেখবেন</h2><p>আপনি নিজেই Events Manager ও GA4-এ যাচাই করতে পারবেন</p></div>
+      <div class="res-grid">
+        <div class="res-card"><div class="ic">🎯</div><h4>Event Match Quality বাড়ে</h4><p>Meta-তে ভালো ম্যাচিংয়ের ফলে অ্যাড অপটিমাইজেশন আরও নির্ভুল হয়।</p></div>
+        <div class="res-card"><div class="ic">📊</div><h4>হারানো কনভার্সন ফেরত আসে</h4><p>অ্যাড ব্লকার ও iOS-এ যে ইভেন্ট মিস হতো, সার্ভার-সাইডে তা রেকর্ড হয়।</p></div>
+        <div class="res-card"><div class="ic">💰</div><h4>অ্যাড খরচের সঠিক ব্যবহার</h4><p>সম্পূর্ণ ডাটা পেলে প্ল্যাটফর্ম সঠিক কাস্টমার খুঁজে পায়, ফলে CPA কমার সুযোগ বাড়ে।</p></div>
+      </div>
+      <div class="shots">
+        <figure class="shot"><img src="before-after-1.jpg" alt="Event Match Quality Before After" loading="lazy" onerror="this.parentNode.style.display='none'"><figcaption>Before / After: Meta Event Match Quality</figcaption></figure>
+        <figure class="shot"><img src="before-after-2.jpg" alt="GA4 Conversion Before After" loading="lazy" onerror="this.parentNode.style.display='none'"><figcaption>Before / After: GA4 কনভার্সন</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="container">
+      <div class="section-header">
+        <h2>সার্ভিস ও প্রাইসিং</h2>
+        <p>GTM + Cloudflare দিয়ে সার্ভার-সাইড ট্র্যাকিং — একবার সেটআপ, লাইফটাইম ব্যবহার</p>
+      </div>
+
+      <div class="pricing-grid">
+        <!-- Single Service 1 -->
+        <div class="price-card">
+          <div class="price-badge">সবচেয়ে জনপ্রিয়</div>
+          <div class="price-icon"><svg class="bi" width="36" height="36" viewBox="0 0 24 24" fill="#0866FF" role="img" aria-hidden="true"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></svg></div>
+          <h3>Facebook Pixel<br>Server-Side Tracking</h3>
+          <p class="price-desc">Conversion API (CAPI) সেটআপ</p>
+          <div class="price-amount">৩,০০০ <span>টাকা</span></div>
+          <ul class="price-features">
+            <li>Facebook Conversion API (CAPI)</li>
+            <li>GTM + Cloudflare Server-Side</li>
+            <li>Event Match Quality বাড়ানো</li>
+            <li>Deduplication সেটআপ</li>
+            <li>টেস্টিং ও ভেরিফিকেশন</li>
+            <li>কোনো মাসিক সার্ভার খরচ নেই</li>
+          </ul>
+          <a href="https://wa.me/8801705289000?text=হ্যালো%20সোহেল%20ভাই%2C%20আমি%20Facebook%20Pixel%20Server-Side%20Tracking%20(৩০০০%20টাকা)%20নিতে%20চাই" class="btn btn-whatsapp price-btn" target="_blank" rel="noopener"><svg class="bi" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" role="img" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg> অর্ডার করুন</a>
+        </div>
+
+        <!-- Single Service 2 -->
+        <div class="price-card">
+          <div class="price-icon"><svg class="bi" width="36" height="36" viewBox="0 0 24 24" fill="#ffffff" role="img" aria-hidden="true"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></div>
+          <h3>TikTok Pixel<br>Server-Side Tracking</h3>
+          <p class="price-desc">Events API সেটআপ</p>
+          <div class="price-amount">৩,০০০ <span>টাকা</span></div>
+          <ul class="price-features">
+            <li>TikTok Events API</li>
+            <li>GTM + Cloudflare Server-Side</li>
+            <li>সঠিক ইভেন্ট ম্যাপিং</li>
+            <li>Deduplication সেটআপ</li>
+            <li>টেস্টিং ও ভেরিফিকেশন</li>
+            <li>কোনো মাসিক সার্ভার খরচ নেই</li>
+          </ul>
+          <a href="https://wa.me/8801705289000?text=হ্যালো%20সোহেল%20ভাই%2C%20আমি%20TikTok%20Pixel%20Server-Side%20Tracking%20(৩০০০%20টাকা)%20নিতে%20চাই" class="btn btn-whatsapp price-btn" target="_blank" rel="noopener"><svg class="bi" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" role="img" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg> অর্ডার করুন</a>
+        </div>
+
+        <!-- Single Service 3 -->
+        <div class="price-card">
+          <div class="price-icon"><svg class="bi" width="36" height="36" viewBox="0 0 24 24" fill="#4285F4" role="img" aria-hidden="true"><path d="M3.9998 22.9291C1.7908 22.9291 0 21.1383 0 18.9293s1.7908-3.9998 3.9998-3.9998 3.9998 1.7908 3.9998 3.9998-1.7908 3.9998-3.9998 3.9998zm19.4643-6.0004L15.4632 3.072C14.3586 1.1587 11.9121.5028 9.9988 1.6074S7.4295 5.1585 8.5341 7.0718l8.0009 13.8567c1.1046 1.9133 3.5511 2.5679 5.4644 1.4646 1.9134-1.1046 2.568-3.5511 1.4647-5.4644zM7.5137 4.8438L1.5645 15.1484A4.5 4.5 0 0 1 4 14.4297c2.5597-.0075 4.6248 2.1585 4.4941 4.7148l3.2168-5.5723-3.6094-6.25c-.4499-.7793-.6322-1.6394-.5878-2.4784z"/></svg></div>
+          <h3>Google Ads<br>Conversion Tracking</h3>
+          <p class="price-desc">Enhanced Conversions সেটআপ</p>
+          <div class="price-amount">২,০০০ <span>টাকা</span></div>
+          <ul class="price-features">
+            <li>Google Ads Conversion Tracking</li>
+            <li>Enhanced Conversions</li>
+            <li>GTM দিয়ে সঠিক সেটআপ</li>
+            <li>Purchase / Lead ইভেন্ট</li>
+            <li>টেস্টিং ও ভেরিফিকেশন</li>
+            <li>রিপোর্টিং চেক</li>
+          </ul>
+          <a href="https://wa.me/8801705289000?text=হ্যালো%20সোহেল%20ভাই%2C%20আমি%20Google%20Ads%20Conversion%20Tracking%20(২০০০%20টাকা)%20নিতে%20চাই" class="btn btn-whatsapp price-btn" target="_blank" rel="noopener"><svg class="bi" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" role="img" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg> অর্ডার করুন</a>
+        </div>
+
+        <!-- Single Service 4 -->
+        <div class="price-card">
+          <div class="price-icon"><svg class="bi" width="36" height="36" viewBox="0 0 24 24" fill="#E37400" role="img" aria-hidden="true"><path d="M22.84 2.9982v17.9987c.0086 1.6473-1.3197 2.9897-2.967 2.9984a2.9808 2.9808 0 01-.3677-.0208c-1.528-.226-2.6477-1.5558-2.6105-3.1V3.1204c-.0369-1.5458 1.0856-2.8762 2.6157-3.1 1.6361-.1915 3.1178.9796 3.3093 2.6158.014.1201.0208.241.0202.3619zM4.1326 18.0548c-1.6417 0-2.9726 1.331-2.9726 2.9726C1.16 22.6691 2.4909 24 4.1326 24s2.9726-1.3309 2.9726-2.9726-1.331-2.9726-2.9726-2.9726zm7.8728-9.0098c-.0171 0-.0342 0-.0513.0003-1.6495.0904-2.9293 1.474-2.891 3.1256v7.9846c0 2.167.9535 3.4825 2.3505 3.763 1.6118.3266 3.1832-.7152 3.5098-2.327.04-.1974.06-.3983.0593-.5998v-8.9585c.003-1.6474-1.33-2.9852-2.9773-2.9882z"/></svg></div>
+          <h3>Google Analytics 4<br>Ecommerce Tracking</h3>
+          <p class="price-desc">GA4 Enhanced Ecommerce সেটআপ</p>
+          <div class="price-amount">২,০০০ <span>টাকা</span></div>
+          <ul class="price-features">
+            <li>GA4 Ecommerce Tracking</li>
+            <li>View Item, Add to Cart, Purchase</li>
+            <li>GTM দিয়ে সঠিক সেটআপ</li>
+            <li>Custom Events ও Parameters</li>
+            <li>টেস্টিং ও ভেরিফিকেশন</li>
+            <li>রিপোর্টিং চেক</li>
+          </ul>
+          <a href="https://wa.me/8801705289000?text=হ্যালো%20সোহেল%20ভাই%2C%20আমি%20Google%20Analytics%204%20Ecommerce%20Tracking%20(২০০০%20টাকা)%20নিতে%20চাই" class="btn btn-whatsapp price-btn" target="_blank" rel="noopener"><svg class="bi" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" role="img" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg> অর্ডার করুন</a>
+        </div>
+
+      </div>
+
+      <!-- Package Card -->
+      <div class="package-card">
+        <div class="package-left">
+          <div class="package-badge">বেস্ট ভ্যালু • সবচেয়ে সাশ্রয়ী</div>
+          <h3>কমপ্লিট সার্ভার-সাইড প্যাকেজ</h3>
+          <p>Facebook + TikTok Pixel Server-Side Tracking + Google Ads Conversion Tracking + Google Analytics 4 Ecommerce Tracking — একসাথে সম্পূর্ণ সেটআপ</p>
+          <ul class="package-features">
+            <li>✓ Facebook Pixel Conversion API (CAPI)</li>
+            <li>✓ TikTok Pixel Events API</li>
+            <li>✓ Google Ads Conversion Tracking + Enhanced Conversions</li>
+            <li>✓ Google Analytics 4 Ecommerce Tracking</li>
+            <li>✓ GTM + Cloudflare Server-Side Setup</li>
+            <li>✓ Event Deduplication + Testing</li>
+            <li>✓ কোনো মাসিক সার্ভার খরচ নেই • লাইফটাইম ব্যবহার</li>
+          </ul>
+        </div>
+        <div class="package-right">
+          <div class="package-old">আলাদা নিলে ১০,০০০ টাকা</div>
+          <div class="package-price">৮,০০০ <span>টাকা</span></div>
+          <div class="package-save">একসাথে নিলে ২,০০০ টাকা সাশ্রয়</div>
+          <a href="https://wa.me/8801705289000?text=হ্যালো%20সোহেল%20ভাই%2C%20আমি%20কমপ্লিট%20সার্ভার-সাইড%20প্যাকেজ%20(৮০০০%20টাকা)%20নিতে%20চাই" class="btn btn-whatsapp package-btn" target="_blank" rel="noopener"><svg class="bi" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" role="img" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg> প্যাকেজ অর্ডার করুন</a>
+        </div>
+      </div>
+
+      <p class="pricing-note">* সব সেটআপে GTM + Cloudflare ব্যবহার করা হয়। একবার সেটআপ করলেই লাইফটাইম চলবে — কোনো মাসিক সার্ভার বিল নেই।</p>
+    </div>
+  </section>
+
+
+  <section id="process">
+    <div class="container">
+      <div class="section-header">
+        <h2>সেটআপ প্রসেস — বিস্তারিত ধাপ</h2>
+        <p>Cloudflare + Google Tag Manager দিয়ে সার্ভার-সাইড ট্র্যাকিং কীভাবে সেটআপ করা হয়</p>
+      </div>
+
+      <div class="timeline">
+        <span class="tl-step">১. কনসালটেশন</span><span class="tl-arrow">→</span><span class="tl-step">২. সেটআপ</span><span class="tl-arrow">→</span><span class="tl-step">৩. টেস্টিং</span><span class="tl-arrow">→</span><span class="tl-step">৪. লাইভ</span><span class="tl-arrow">→</span><span class="tl-step">৫. হ্যান্ডওভার</span>
+        <div class="tl-time">⏱️ সাধারণত ২–৪ কার্যদিবসে সম্পন্ন (সাইটের ধরন অনুযায়ী কম-বেশি হতে পারে)</div>
+      </div>
+
+      <div class="process-grid">
+        <div class="process-card">
+          <div class="process-num">১</div>
+          <div>
+            <h3>GTM Web & Server Container তৈরি</h3>
+            <p>Google Tag Manager-এ নতুন Web Container তৈরি করা হয়। এখানেই সব browser এবং সার্ভার-সাইড ট্যাগ, ট্রিগার ও প্যারামিটার কনফিগার করা হয় যাতে অ্যাডস প্ল্যাটফর্মে ডাটা পাঠানো যায়।</p>
+          </div>
+        </div>
+
+        <div class="process-card">
+          <div class="process-num">২</div>
+          <div>
+            <h3>Cloudflare-এ ডোমেইন / পাথ সেটআপ</h3>
+            <p>আপনার নিজের ডোমেইনে (same-origin path বা সাবডোমেইন) ট্র্যাকিং এন্ডপয়েন্ট তৈরি করা হয়। এতে অ্যাড ব্লকার ও Safari ITP বাইপাস হয়।</p>
+          </div>
+        </div>
+
+        <div class="process-card">
+          <div class="process-num">৩</div>
+          <div>
+            <h3>Cloudflare দিয়ে Proxy</h3>
+            <p>Cloudflare-এ কাস্টম সার্ভার বানিয়ে GTM-এর সাথে কানেক্ট করা হয়। কোনো আলাদা সার্ভার বা মাসিক খরচ লাগে না।</p>
+          </div>
+        </div>
+
+        <div class="process-card">
+          <div class="process-num">৪</div>
+          <div>
+            <h3>Web GTM থেকে Server-এ ডাটা পাঠানো</h3>
+            <p>ওয়েবসাইটের Web Container থেকে Cloudflare Server-এ ইভেন্ট পাঠানোর কনফিগারেশন করা হয় এবং ডাটা ফ্লো সেটআপ করা হয়।</p>
+          </div>
+        </div>
+
+        <div class="process-card">
+          <div class="process-num">৫</div>
+          <div>
+            <h3>Clients ও Conversion API সেটআপ</h3>
+            <p>GA4 Client, Meta CAPI, TikTok Events API, Google Ads Enhanced Conversions ইত্যাদি Cloudflare Server-এ যোগ ও কনফিগার করা হয়। Event Match Quality সর্বোচ্চ রাখা হয়।</p>
+          </div>
+        </div>
+
+        <div class="process-card">
+          <div class="process-num">৬</div>
+          <div>
+            <h3>Deduplication ও Testing</h3>
+            <p>Event ID দিয়ে Client + Server ডুপ্লিকেট আটকানো হয়। Preview Mode, DebugView ও রিয়েল টেস্টিং করে নিশ্চিত করা হয় সব ইভেন্ট সঠিকভাবে যাচ্ছে।</p>
+          </div>
+        </div>
+
+        <div class="process-card">
+          <div class="process-num">৭</div>
+          <div>
+            <h3>Publish ও Documentation</h3>
+            <p>সবকিছু Publish করে হ্যান্ডওভার করা হয়। আপনি নিজেও পরে ম্যানেজ করতে পারবেন। সম্পূর্ণ ডকুমেন্টেশন ও অ্যাক্সেস দেওয়া হয়।</p>
+          </div>
+        </div>
+
+        <div class="process-card">
+          <div class="process-num">৮</div>
+          <div>
+            <h3>লাইফটাইম মালিকানা</h3>
+            <p>সেটআপ শেষ হলে সবকিছু আপনার Cloudflare ও GTM অ্যাকাউন্টে থাকে। কোনো মাসিক সার্ভার বিল নেই। একবার সেটআপ = চিরকাল ব্যবহার।</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="why-cloudflare">
+    <div class="container">
+      <div class="section-header">
+        <h2>কেন Cloudflare এই সেটআপের জন্য পারফেক্ট?</h2>
+        <p>শুধু হোস্টিং না — আসল ব্যবসায়িক সুবিধা</p>
+      </div>
+      <div class="cf-grid">
+        <div class="cf-card"><div class="icon">⚡</div><h4>অত্যন্ত দ্রুত</h4><p>এজ নেটওয়ার্ক মানে আপনার ট্র্যাকিং সবচেয়ে কাছের লোকেশন থেকে লোড হয়। Core Web Vitals ভালো হয়।</p></div>
+        <div class="cf-card"><div class="icon">🛡️</div><h4>হ্যাকার থেকে সুরক্ষা</h4><p>WAF, DDoS প্রটেকশন, Bot Fight Mode — আপনার ট্র্যাকিং এন্ডপয়েন্ট সুরক্ষিত থাকে।</p></div>
+        <div class="cf-card"><div class="icon">🤖</div><h4>বট ও অ্যাটাক শিল্ড</h4><p>অটোমেটিক বট ডিটেকশন + চ্যালেঞ্জ পেজ। স্ক্র্যাপার ও ম্যালিসিয়াস ট্রাফিক আটকে দেয়।</p></div>
+        <div class="cf-card"><div class="icon">🔒</div><h4>IP ব্লকিং ও রুলস</h4><p>দেশ, নির্দিষ্ট IP বা ইউজার এজেন্ট কয়েক ক্লিকে ব্লক করুন। পূর্ণ কন্ট্রোল।</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="guarantee">
+    <div class="container">
+      <div class="section-header"><h2>আমার প্রতিশ্রুতি</h2><p>কাজ শেষ মানেই দায়িত্ব শেষ না</p></div>
+      <div class="guarantee">
+        <div class="g-card"><div class="ic">🛠️</div><h4>৭ দিন ফ্রি সাপোর্ট</h4><p>সেটআপের পর যেকোনো সমস্যায় পাশে আছি।</p></div>
+        <div class="g-card"><div class="ic">✅</div><h4>ডাটা সঠিক না এলে ফ্রি ফিক্স</h4><p>টেস্টিংয়ে কোনো ইভেন্ট ঠিকমতো না গেলে বিনা খরচে ঠিক করে দেই।</p></div>
+        <div class="g-card"><div class="ic">🔑</div><h4>সব অ্যাক্সেস আপনার হাতে</h4><p>GTM ও Cloudflare অ্যাকাউন্ট আপনার, সাথে পূর্ণ ডকুমেন্টেশন।</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <div class="proof-section">
+        <div class="proof-content">
+          <div class="about-header">
+            <div class="about-avatar">
+              <img src="profile.jpg" alt="মোঃ সোহেল রানা" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="fallback" style="display:none;">SR</div>
+            </div>
+            <h2>মোঃ সোহেল রানা</h2>
+            <div class="title">Server-Side Tracking & GTM Expert</div>
+            <div class="location">🇧🇩 Bangladesh • Top Rated Seller</div>
+          </div>
+          <p>ডিজিটাল মার্কেটিং ও ট্র্যাকিং স্পেশালিস্ট। <strong>৪০০+ সফল প্রজেক্ট</strong> সম্পন্ন করেছি। Top Rated সেলার। ক্লায়েন্টরা আমাকে সঠিক ও ভবিষ্যৎ-প্রুফ ট্র্যাকিং সেটআপের জন্য বিশ্বাস করে, যা আসলেই ROAS বাড়ায়।</p>
+          <p>আমি সার্ভার-সাইড ট্র্যাকিং, Conversion API, GA4, GTM-এ স্পেশালাইজড। আপনার অ্যাড প্ল্যাটফর্ম যেন পরিষ্কার ও সম্পূর্ণ ডাটা পায় — কোনো মাসিক সার্ভার বিল ছাড়াই।</p>
+          </div>
+        <div class="reviews">
+          <div class="shots" style="grid-template-columns:1fr;margin-bottom:6px">
+            <figure class="shot"><img src="fiverr-profile.jpg" alt="Fiverr Top Rated প্রোফাইল" loading="lazy" onerror="this.parentNode.style.display='none'"><figcaption>Top Rated Seller প্রোফাইল</figcaption></figure>
+            <figure class="shot"><img src="fiverr-reviews.jpg" alt="Fiverr ক্লায়েন্ট রিভিউ" loading="lazy" onerror="this.parentNode.style.display='none'"><figcaption>ক্লায়েন্টদের রিভিউ</figcaption></figure>
+          </div>
+          <a href="https://www.youtube.com/@PixelSetupGTMExpert/videos" class="video-card" target="_blank" rel="noopener" style="margin-top:0"><div class="play">▶</div><div><strong>ডেমো ও টিউটোরিয়াল ভিডিও দেখুন</strong><p>YouTube চ্যানেলে সেটআপের বাস্তব উদাহরণ</p></div></a>
+          <div class="review-card">
+            <div class="review-header"><span class="stars">★★★★★</span><span style="font-size:.8rem;color:#94a3b8">United States</span></div>
+            <p>“He knew what he was doing, very obviously. My Facebook pixel is tracking website conversions through GTM and the pixel. Now I can start ads and feel more confident!”</p>
+            <div class="reviewer">— Achievement2024</div>
+          </div>
+          <div class="review-card">
+            <div class="review-header"><span class="stars">★★★★★</span><span style="font-size:.8rem;color:#94a3b8">United States</span></div>
+            <p>“Sohel was extremely responsive and quick to complete the job without any errors. This pixel stuff is so confusing — really comforting to have him take control.”</p>
+            <div class="reviewer">— Vita Haas</div>
+          </div>
+          <div class="review-card">
+            <div class="review-header"><span class="stars">★★★★★</span><span style="font-size:.8rem;color:#94a3b8">United States</span></div>
+            <p>“He is very responsive, polite, and patient. Great customer service.”</p>
+            <div class="reviewer">— Masonian LLC</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="audit">
+    <div class="container">
+      <div class="section-header"><h2>🔍 ফ্রি ট্র্যাকিং অডিট</h2><p>আপনার ওয়েবসাইটের লিংক দিন। কোন ট্র্যাকিং আছে, কী মিসিং এবং কীভাবে ঠিক হবে — সাথে সাথে দেখুন।</p></div>
+      <form class="audit-form" id="auditForm" novalidate>
+        <input type="text" id="auditUrl" placeholder="example.com" inputmode="url" autocapitalize="off" autocomplete="url" aria-label="ওয়েবসাইট লিংক">
+        <button type="submit" class="btn btn-whatsapp" id="auditBtn">অডিট করুন</button>
+      </form>
+      <div id="auditOut" class="audit-out" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="container">
+      <div class="section-header"><h2>সাধারণ প্রশ্ন (FAQ)</h2></div>
+      <div class="faq">
+        <details><summary>সার্ভার-সাইড ট্র্যাকিং কী?</summary><p>ব্রাউজারের বদলে আপনার নিজস্ব সার্ভার থেকে Meta, Google ও TikTok-এ ইভেন্ট পাঠানোর পদ্ধতি। এতে অ্যাড ব্লকার ও ব্রাউজার রেস্ট্রিকশনে ডাটা কম হারায়।</p></details>
+        <details><summary>আমার ওয়েবসাইট Shopify / WordPress / কাস্টম হলে চলবে?</summary><p>হ্যাঁ। WordPress, WooCommerce, Shopify, কাস্টম কোডেড সাইট এবং ল্যান্ডিং পেজে সেটআপ করা যায়। প্ল্যাটফর্ম অনুযায়ী পদ্ধতি একটু আলাদা হয়।</p></details>
+        <details><summary>সেটআপের পর কি মাসিক খরচ আছে?</summary><p>আমার সার্ভিস ফি এককালীন। Stape-এর মতো মাসিক সার্ভার ফি নেই। আপনার দৈনিক অ্যাড বাজেট যদি ১,০০০ USD হয়, তাহলে Cloudflare-এর মাসিক ৫ USD-এর প্ল্যান কিনতে হবে। এর আগে কোনো প্ল্যান ছাড়াই ফ্রিতে প্রিমিয়াম সব সুবিধা পাবেন।</p></details>
+        <details><summary>কুকি ও প্রাইভেসির বিষয়টা কী?</summary><p>ফার্স্ট-পার্টি ডোমেইনে ট্র্যাকিং চলে, ফলে কুকি দীর্ঘস্থায়ী হয়। ইউজারের কনসেন্ট ও প্রাইভেসি নিয়ম মেনে চলার দায়িত্ব আপনার সাইটের কনসেন্ট সেটিংসের সাথে যুক্ত থাকে।</p></details>
+        <details><summary>কাজ শেষে কি আমি নিজে ম্যানেজ করতে পারব?</summary><p>হ্যাঁ। সব অ্যাকাউন্ট আপনার নামে থাকে এবং সম্পূর্ণ ডকুমেন্টেশন দেওয়া হয়।</p></details>
+        <details><summary>কত দিনে কাজ শেষ হয়?</summary><p>সাধারণত ২–৪ কার্যদিবস। একাধিক প্ল্যাটফর্ম হলে একটু বেশি সময় লাগতে পারে।</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="audit-box">
+        <h3>🔍 ফ্রি ট্র্যাকিং অডিট নিন</h3>
+        <p>ওয়েবসাইটের লিংক দিন — GA4, Pixel, Google Ads, সার্ভার-সাইড ও Conversion API কী কী আছে বা নেই, সাথে সমাধান দেখুন।</p>
+        <a href="#audit" class="btn btn-whatsapp">🔍 ফ্রি অডিট টুল চালান</a>
+      </div>
+      <div class="cta-box">
+        <h2>সঠিক ট্র্যাকিং চান<br>যা আপনার নিজের হবে?</h2>
+        <p>অ্যাড ব্লকার ও প্রাইভেসি রেস্ট্রিকশনের কারণে আর কনভার্সন হারাবেন না। পারমানেন্ট সার্ভার-সাইড সলিউশন নিন — মাসিক ফি ছাড়াই।</p>
+        <div class="cta-buttons">
+          <a href="https://wa.me/8801705289000?text=হ্যালো%20সোহেল%20ভাই%2C%20আমি%20সার্ভার-সাইড%20ট্র্যাকিং%20সেটআপ%20করতে%20চাই" class="btn btn-whatsapp" target="_blank" rel="noopener"><svg class="bi" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" role="img" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg> হোয়াটসঅ্যাপে মেসেজ করুন</a>
+        </div>
+      </div>
+      <div class="socials">
+        <a href="https://www.youtube.com/@PixelSetupGTMExpert/videos" class="social-link" target="_blank" rel="noopener" title="YouTube" aria-label="YouTube">
+          <svg class="bi" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" role="img" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        </a>
+        <a href="https://www.facebook.com/sohelrana90000" class="social-link" target="_blank" rel="noopener" title="Facebook" aria-label="Facebook">
+          <svg class="bi" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" role="img" aria-hidden="true"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/web_analytics_1" class="social-link" target="_blank" rel="noopener" title="Instagram" aria-label="Instagram">
+          <svg class="bi" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" role="img" aria-hidden="true"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/digitalmarketer02/" class="social-link" target="_blank" rel="noopener" title="LinkedIn" aria-label="LinkedIn">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+        <a href="https://www.tiktok.com/@web_analytics" class="social-link" target="_blank" rel="noopener" title="TikTok" aria-label="TikTok">
+          <svg class="bi" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" role="img" aria-hidden="true"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+        </a>
+        <a href="https://x.com/sohelrana900" class="social-link" target="_blank" rel="noopener" title="X / Twitter" aria-label="X">
+          <svg class="bi" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" role="img" aria-hidden="true"><path d="M14.234 10.162 22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299-.929-1.329L3.076 1.56h3.182l5.965 8.532.929 1.329 7.754 11.09h-3.182z"/></svg>
+        </a>
+        <a href="https://www.reddit.com/user/mdsohel9000" class="social-link" target="_blank" rel="noopener" title="Reddit" aria-label="Reddit">
+          <svg class="bi" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" role="img" aria-hidden="true"><path d="M12 0C5.373 0 0 5.373 0 12c0 3.314 1.343 6.314 3.515 8.485l-2.286 2.286C.775 23.225 1.097 24 1.738 24H12c6.627 0 12-5.373 12-12S18.627 0 12 0Zm4.388 3.199c1.104 0 1.999.895 1.999 1.999 0 1.105-.895 2-1.999 2-.946 0-1.739-.657-1.947-1.539v.002c-1.147.162-2.032 1.15-2.032 2.341v.007c1.776.067 3.4.567 4.686 1.363.473-.363 1.064-.58 1.707-.58 1.547 0 2.802 1.254 2.802 2.802 0 1.117-.655 2.081-1.601 2.531-.088 3.256-3.637 5.876-7.997 5.876-4.361 0-7.905-2.617-7.998-5.87-.954-.447-1.614-1.415-1.614-2.538 0-1.548 1.255-2.802 2.803-2.802.645 0 1.239.218 1.712.585 1.275-.79 2.881-1.291 4.64-1.365v-.01c0-1.663 1.263-3.034 2.88-3.207.188-.911.993-1.595 1.959-1.595Zm-8.085 8.376c-.784 0-1.459.78-1.506 1.797-.047 1.016.64 1.429 1.426 1.429.786 0 1.371-.369 1.418-1.385.047-1.017-.553-1.841-1.338-1.841Zm7.406 0c-.786 0-1.385.824-1.338 1.841.047 1.017.634 1.385 1.418 1.385.785 0 1.473-.413 1.426-1.429-.046-1.017-.721-1.797-1.506-1.797Zm-3.703 4.013c-.974 0-1.907.048-2.77.135-.147.015-.241.168-.183.305.483 1.154 1.622 1.964 2.953 1.964 1.33 0 2.47-.81 2.953-1.964.057-.137-.037-.29-.184-.305-.863-.087-1.795-.135-2.769-.135Z"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>© ২০২৬ মোঃ সোহেল রানা • PixelSetup GTM Expert • সার্ভার-সাইড ট্র্যাকিং স্পেশালিস্ট</p>
+      <p style="margin-top:8px;font-size:.85rem">হোয়াটসঅ্যাপ: ০১৭০৫-২৮৯০০০</p>
+    </div>
+  </footer>
+
+
+    <a href="https://wa.me/8801705289000?text=হ্যালো%20সোহেল%20ভাই" class="float-wa" target="_blank" rel="noopener" aria-label="হোয়াটসঅ্যাপ"><svg class="bi" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" role="img" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg> <span>হোয়াটসঅ্যাপ</span></a>
+
+
+  <script>
+  (function(){
+    var $=function(i){return document.getElementById(i)},fmt=function(n){return n.toLocaleString('en-US')};
+    var req=12480,ev=11936,bot=214,pts=[],N=30,i;
+    for(i=0;i<N;i++)pts.push(30+Math.random()*25);
+    var evs=['PageView','ViewContent','AddToCart','InitiateCheckout','Purchase','Lead'],
+        dst=['Meta CAPI','GA4','TikTok API','Google Ads'],log=$('lvLog');
+    function pad(n){return n<10?'0'+n:n}
+    function draw(){
+      var w=300,h=70,st=w/(N-1),l='',a='M0,'+h;
+      pts.forEach(function(v,k){var y=h-v,x=k*st;l+=x.toFixed(1)+','+y.toFixed(1)+' ';a+=' L'+x.toFixed(1)+','+y.toFixed(1)});
+      $('lvLine').setAttribute('points',l);$('lvArea').setAttribute('d',a+' L'+w+','+h+' Z');
+    }
+    function row(){
+      var d=new Date(),r=document.createElement('div');r.className='lv-row';
+      r.innerHTML='<span class="t">'+pad(d.getHours())+':'+pad(d.getMinutes())+':'+pad(d.getSeconds())+'</span><span class="e">'+evs[Math.floor(Math.random()*evs.length)]+'</span><span class="d">→ '+dst[Math.floor(Math.random()*dst.length)]+'</span><span class="s">200</span>';
+      log.appendChild(r);while(log.children.length>7)log.removeChild(log.firstChild);
+    }
+    function tick(){
+      var add=Math.floor(3+Math.random()*9);
+      req+=add;ev+=add-(Math.random()<.15?1:0);if(Math.random()<.25)bot+=1;
+      $('lvReq').textContent=fmt(req);$('lvEv').textContent=fmt(ev);$('lvBot').textContent=fmt(bot);
+      $('lvOk').textContent=(99.7+Math.random()*.25).toFixed(1)+'%';
+      pts.push(Math.max(12,Math.min(62,pts[pts.length-1]+(Math.random()-.48)*14)));pts.shift();draw();
+    }
+    draw();for(i=0;i<5;i++)row();
+    setInterval(tick,1000);setInterval(row,1300);
+  })();
+  </script>
+
+  <script>
+  (function(){
+    var f=document.getElementById('auditForm'),inp=document.getElementById('auditUrl'),btn=document.getElementById('auditBtn'),out=document.getElementById('auditOut');
+    var bn=function(n){return String(n).replace(/\d/g,function(d){return '০১২৩৪৫৬৭৮৯'[d]})};
+    var LBL={ok:'✅ ঠিক আছে',warn:'⚠️ আংশিক',miss:'❌ মিসিং'};
+    function h(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e}
+    function msg(c,t,spin){out.textContent='';var d=h('div',c);if(spin)d.appendChild(h('span','au-spin'));d.appendChild(document.createTextNode(t));out.appendChild(d)}
+    function render(r){
+      out.textContent='';
+      var col=r.score>=75?'#10b981':r.score>=40?'#eab308':'#ef4444';
+      var sc=h('div','au-score'),ring=h('div','au-ring',bn(r.score)+'%');
+      ring.style.background='conic-gradient('+col+' '+r.score+'%, #334155 0)';ring.style.boxShadow='inset 0 0 0 10px #1e293b';ring.style.color=col;
+      var tx=h('div');tx.appendChild(h('h3',null,r.url));
+      tx.appendChild(h('p',null,r.score>=75?'ট্র্যাকিং মোটামুটি ভালো, কিছু উন্নতির সুযোগ আছে।':r.score>=40?'ট্র্যাকিং আংশিক — কিছু গুরুত্বপূর্ণ জিনিস মিসিং, ডাটা লস হচ্ছে।':'ট্র্যাকিং দুর্বল — অ্যাড ডাটার বড় অংশ হারাচ্ছে।'));
+      sc.appendChild(ring);sc.appendChild(tx);out.appendChild(sc);
+      var miss=[];
+      r.checks.forEach(function(c){
+        if(c.status!=='ok')miss.push(c.title);
+        var it=h('div','au-item '+c.status),hd=h('div','au-head');
+        hd.appendChild(h('h4',null,c.title));hd.appendChild(h('span','au-tag',LBL[c.status]));
+        it.appendChild(hd);it.appendChild(h('p',null,c.detail));
+        if(c.found&&c.found.length)it.appendChild(h('div','au-ids',c.found.join('  •  ')));
+        if(c.fix){var fx=h('div','au-fix');fx.appendChild(h('b',null,'কীভাবে ঠিক হবে: '));fx.appendChild(document.createTextNode(c.fix));it.appendChild(fx)}
+        out.appendChild(it);
+      });
+      out.appendChild(h('p','au-note',r.note));
+      var cta=h('div','au-cta'),a=h('a','btn btn-whatsapp','💬 এই সমস্যাগুলো ঠিক করিয়ে নিন');
+      var t='হ্যালো সোহেল ভাই, আমার সাইট '+r.url+' এর ফ্রি অডিট করেছি (স্কোর '+r.score+'%)।'+(miss.length?' মিসিং/আংশিক: '+miss.join(', ')+'।':'')+' এগুলো ঠিক করতে চাই।';
+      a.href='https://wa.me/8801705289000?text='+encodeURIComponent(t);a.target='_blank';a.rel='noopener';
+      cta.appendChild(a);out.appendChild(cta);
+    }
+    f.addEventListener('submit',function(e){
+      e.preventDefault();var v=inp.value.trim();
+      if(!v){msg('au-err','ওয়েবসাইটের লিংক দিন (যেমন: example.com)');return}
+      btn.disabled=true;btn.textContent='স্ক্যান হচ্ছে...';msg('au-load','আপনার সাইট স্ক্যান করা হচ্ছে, ১০–২০ সেকেন্ড সময় লাগতে পারে...',true);
+      fetch('/api/audit?url='+encodeURIComponent(v)).then(function(r){return r.json().then(function(j){return {ok:r.ok,j:j}})})
+        .then(function(x){if(!x.ok)msg('au-err',x.j.error||'অডিট করা যায়নি।');else render(x.j)})
+        .catch(function(){msg('au-err','অডিট সার্ভারের সাথে যোগাযোগ করা যায়নি। একটু পরে আবার চেষ্টা করুন।')})
+        .then(function(){btn.disabled=false;btn.textContent='অডিট করুন'});
+    });
+  })();
+  </script>
+  <script>
+    document.documentElement.classList.add('js');
+    if('IntersectionObserver' in window){
+      const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+      document.querySelectorAll('section .container>*').forEach(el=>{if(el.id==='auditOut')return;el.classList.add('reveal');io.observe(el)});
+    }
+  </script>
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+  </script>
+
+</body>
+</html>
